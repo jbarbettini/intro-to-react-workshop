@@ -1,12 +1,16 @@
 const path = require('path')
 
 module.exports = {
-  context: __dirname, 
-  entry: './js/ClientApp.js', 
+  context: __dirname,
+  entry: './js/ClientApp.js',
   devtool: 'source-map',
   output: {
     path: path.join(__dirname, '/public'),
     filename: 'bundle.js'
+  },
+  devServer: {
+    publicPath: '/public/',
+    historyApiFallback: true
   },
   resolve: {
     extensions: ['.js', '.json']
@@ -19,6 +23,12 @@ module.exports = {
   module: {
     rules: [
       {
+        enforce: 'pre',
+        test: /\.js$/,
+        loader: 'eslint-loader',
+        exclude: /node_modules/
+      },
+      {
         include: path.resolve(__dirname, 'js'),
         test: /\.js$/,
         loader: 'babel-loader'
@@ -26,7 +36,7 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          'style-loader', 
+          'style-loader',
           {
             loader: 'css-loader',
             options: {
