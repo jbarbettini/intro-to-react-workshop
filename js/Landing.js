@@ -4,7 +4,7 @@ const Landing = React.createClass({
   render () {
     return (
       <div className='landing'>
-        <h1>video</h1>
+        <h1>Search Videos</h1>
         <input type='text' placeholder='Search' />
         <a> or Browse All </a>
       </div>
