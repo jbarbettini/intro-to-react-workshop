@@ -4,7 +4,7 @@ var h1 = React.DOM.h1;
 var MyTitle = React.createClass({
   render: function() {
     return (
-      div(null, h1(null, 'check out this component'))
+      div(null, h1(null, this.props.title))
     )
   }
 })
@@ -15,10 +15,10 @@ var MyFirstComponent = React.createClass({
       render: function() {
         return (
           div(null, [
-            MyTitleFactory(MyTitle),
-            MyTitleFactory(MyTitle),
-            MyTitleFactory(MyTitle),
-            MyTitleFactory(MyTitle)
+            MyTitleFactory({ title: 'props are the best' }),
+            MyTitleFactory({ title: 'jk' }),
+            MyTitleFactory({ title: 'whatever'}),
+            MyTitleFactory({ title: 'best workshop' })
             ]
           )
         )
