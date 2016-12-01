@@ -13,7 +13,7 @@ var MyFirstComponent = React.createClass({
             MyTitleFactory({title: 'Props are great!', color: 'rebeccapurple'}),
             MyTitleFactory({title: 'Props are great!', color: 'dodgerblue'}),
             MyTitleFactory({title: 'Use props everywhere!', color: 'mediumaquamarine'}),
-            MyTitleFactory({title: 'Props are the best!', color: 'peru'})
+            MyTitleFactory({title: 'Props are the best! blah', color: 'peru'})
           ]
           )
     )
