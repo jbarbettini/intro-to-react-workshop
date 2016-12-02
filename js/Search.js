@@ -38,6 +38,7 @@ const Search = React.createClass({
               )
             })}
         </div>
+        
       </div>
     )
   }
