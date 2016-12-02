@@ -31,7 +31,7 @@ const Details = React.createClass({
 
   render () {
     const { title, description, year, poster, trailer } = this.props.show
-    let rating 
+    let rating
     if (this.state.omdbData.imdbRating) {
       rating = <h3>{this.state.omdbData.imdbRating}</h3>
     } else {

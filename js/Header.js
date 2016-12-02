@@ -1,7 +1,19 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { setSearchTerm } from './actionsCreators'
 import { Link } from 'react-router'
 
-class Header extends React.Component {
+const { func, bool, string } = React.PropTypes
+
+const Header = React.createClass({
+  propTypes: {
+    showSearch: bool,
+    searchTerm: string,
+    dispatch: func
+  },
+  handleSearchTermChange (event) {
+    this.props.dispatch(setSearchTerm(event.target.value))
+  },
   render () {
     let utilSpace
     if (this.props.showSearch) {
@@ -26,13 +38,12 @@ class Header extends React.Component {
       </header>
     )
   }
+})
+
+const mapStateToProps = (state) => {
+  return {
+    searchTerm: state.searchTerm
+  }
 }
 
-const { func, bool, string } = React.PropTypes
-Header.propTypes = {
-  handleSearchTermChange: func,
-  showSearch: bool,
-  searchTerm: string
-}
-
-export default Header
+export default connect(mapStateToProps)(Header)
